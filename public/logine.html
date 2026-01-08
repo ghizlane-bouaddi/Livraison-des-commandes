@@ -11,13 +11,13 @@
 <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="card p-4" style="width:350px">
         <h4 class="text-center mb-3">Se connecter</h4>
-        <form action="login.php" method="POST">
+        <form action="../src/auth/login.php" method="post">
             <input type="email" name="email" class="form-control mb-3" placeholder="Email" required>
             <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
-            <button type="submit" class="btn btn-primary w-100">Se connecter</button>
+            <button type="submit" name="submit" class="btn btn-primary w-100">Se connecter</button>
         </form>
         <p class="text-center mt-3">
-            <a href="register.html">Créer un compte</a>
+            <a href="registere.html">Créer un compte</a>
         </p>
     </div>
 </div>

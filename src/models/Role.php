@@ -1,5 +1,5 @@
 <?php
-
+include 'database.php';
 class Role{
     private int $id;
     private string $name;
@@ -14,17 +14,9 @@ class Role{
         return $this->id;
     }
 
-    public function setid($id){
-        return $this->id=$id;
-    }
-
     public function getname(){
         return $this->name;
     }
-    public function setname($name){
-        return $this->name=$name;
-    }
-
     
    
 }

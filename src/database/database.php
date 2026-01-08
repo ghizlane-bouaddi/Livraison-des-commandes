@@ -7,9 +7,8 @@ class Database{
 
     public static function getpdo():PDO{
         if(self::$conn == null){
-            self::$conn = new PDO("mysql:host=localhost;dbname=application_livraison_commandes","root","",[
-                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-                ]);
+            self::$conn = new PDO("mysql:host=localhost;dbname=delivery","root","",[
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
            
         }
         return self::$conn;

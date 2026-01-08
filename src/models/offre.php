@@ -1,12 +1,14 @@
 <?php
 
-class Offre{
+include 'BaseModel.php';
+class Offre extends BaseModel{
     private int $id;
     private float $prix;
     private int $commend_id;
     private int $livrer_id;
 
     public function __construct($id,$prix,$commend_id,$livrer_id){
+        parent::__construct();
         $this->id=$id;
         $this->prix=$prix;
         $this->commend_id=$commend_id;
@@ -19,7 +21,7 @@ class Offre{
     }
 
     public function  setid($id) {
-        return $this->id=$id;
+         $this->id=$id;
     }
 
     public function getptix() {
@@ -27,7 +29,7 @@ class Offre{
     }
 
     public function setprix($prix){
-        return $this->prix=$prix;
+         $this->prix=$prix;
     }
 
     public function getcommend_id(){
@@ -39,7 +41,7 @@ class Offre{
     }
 
     public function getlivrer_id(){
-        $this->livrer_id;
+        return $this->livrer_id;
     }
 
     public function setlivrer_id($livrer_id){

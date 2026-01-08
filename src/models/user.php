@@ -1,16 +1,20 @@
 <?php
 
-class User {
+include 'BaseModel.php';
+class User extends BaseModel{
     private int $id;
     private string $name;
     private string $email;
     private string $password;
+    private int $roleId;
 
-    public function __construct(int $id, string $name, string $email, string $password){
+    public function __construct(int $id, string $name, string $email, string $password,$roleId){
+        parent::__construct();
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
         $this->password = $password;
+        $this->roleId=$roleId;
     }
 
     public function getId(): int {
@@ -44,4 +48,10 @@ class User {
     public function setPassword(string $password): void {
         $this->password = $password;
     }
+
+    public function getroleId(){
+        return $this->roleId;
+    }
+
+    
 }

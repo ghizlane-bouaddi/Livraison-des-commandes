@@ -1,17 +1,19 @@
 <?php
 
-class Commend{
-    private int $id;
-    private string $name;
+include 'BaseModel.php';
+class Commend extends BaseModel{
+   private int $id;
+//    private string $name;
     private string $status;
     private string $addrise;
-    private int $clientId; 
-    private int $livrerId=null;
+    private int $clientId;
+    private int $livrerId;
 
 
-    public function __construct($id,$name,$status,$addrise,$clientId,$livrerId){
+    public function __construct($id,$status,$addrise,$clientId,$livrerId = null){
+        parent::__construct();
         $this->id=$id;
-        $this->name=$name;
+        // $this->name=$name;
         $this->status=$status;
         $this->addrise=$addrise;
         $this->clientId=$clientId;
@@ -23,16 +25,16 @@ class Commend{
     }
 
     public function setid($id){
-        return $this->id=$id;
+         $this->id=$id;
     }
 
-     public function getname(){
-        return $this->name;
-    }
+    //  public function getname(){
+    //     return $this->name;
+    // }
 
-    public function setname($name){
-        return $this->name=$name;
-    }
+    // public function setname($name){
+    //    $this->name=$name;
+    // }
 
 
     public function getstatus(){
@@ -40,7 +42,7 @@ class Commend{
     }
 
     public function setstatus($status){
-        return $this->status=$status;
+         $this->status=$status;
     }
 
 
@@ -49,7 +51,7 @@ class Commend{
     }
 
     public function setaddrise($addrise){
-        return $this->addrise=$addrise;
+        $this->addrise=$addrise;
     }
 
 }
