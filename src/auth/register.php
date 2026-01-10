@@ -1,25 +1,26 @@
 <?php
 
 include '../database/database.php';
+include '../services/userService.php';
 
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $name = $_POST["name"];
-    $email = $_POST["email"];
+    $name     = $_POST["name"];
+    $email    = $_POST["email"];
     $password = $_POST["password"];
-    $role = $_POST["role"];
+    $role     = (int) $_POST["role"];
 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $pdo = Database::getpdo();
+    $pdo = Database::getPdo();
 
-    $sql = "INSERT INTO users (name, email, password, rele_id)
-            VALUES (?, ?, ?, ?)";
+    $user = new User($pdo);
 
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$name, $email, $hashedPassword, $role]);
 
-    header("Location: ../../public/logine.html");
-    exit;
+    if ($user->register($name, $email, $password, $role)) {
+        header("Location: ../../public/logine.html");
+        exit;
+    } else {
+        echo "Erreur lors de l'inscription";
+    }
 }
+
