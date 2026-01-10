@@ -20,14 +20,14 @@ function getUserById(PDO $pdo, int $id): array|false {
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-// UPDATE
+
 function updateUser(PDO $pdo, string $name, string $email, int $id): bool {
     $sql = "UPDATE users SET name = ?, email = ? WHERE id = ?";
     $stmt = $pdo->prepare($sql);
     return $stmt->execute([$name, $email, $id]);
 }
 
-// DELETE
+
 function deleteUser(PDO $pdo, int $id): bool {
     $sql = "DELETE FROM users WHERE id = ?";
     $stmt = $pdo->prepare($sql);
