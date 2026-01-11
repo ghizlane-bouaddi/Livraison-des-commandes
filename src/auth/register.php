@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $role     = (int) $_POST["role"];
 
 
-    $pdo = Database::getPdo();
+    $pdo = new Database();
 
     $user = new User($pdo);
 

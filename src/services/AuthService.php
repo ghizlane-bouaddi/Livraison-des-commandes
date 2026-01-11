@@ -1,17 +1,16 @@
 <?php
-
+require_once '../database/database.php';
 class AuthService {
-    private PDO $pdo;
-
- 
-    public function __construct(PDO $pdo)
+    // private PDO $pdo;
+    private Database $pdo;
+    public function __construct(Database $pdo)
     {
         $this->pdo = $pdo;
     }
     public function login(string $email, string $password): bool
     {
 
-        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt = $this->pdo->getpdo()->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->execute([$email]);
 
 

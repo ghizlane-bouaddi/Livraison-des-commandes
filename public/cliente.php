@@ -1,10 +1,24 @@
 <?php
 session_start();
-// if (!isset($_SESSION['user_id']) || $_SESSION['role_id'] !== 1) {
-//     header("Location: ../login.php");
-//     exit;
-//     ;
-// }
+
+require_once '../src/database/database.php';
+require_once '../src/models/commend.php'; 
+echo '<pre>';
+var_dump($_POST);
+echo '</pre>';
+if (!empty($_POST)) {
+  $name =$_POST['name'];
+  $status =$_POST['status'];
+  $address = $_POST['address'];
+   
+   var_dump($name);
+ 
+
+    $pdo = new Database();
+    $auth = new createCommond($pdo);
+
+}
+
 
 ?>
 
@@ -30,13 +44,18 @@ session_start();
 
 <!-- Create Order -->
 <div class="card mb-4">
-  <div class="card-header bg-success text-white">Créer une commande</div>
-  <div class="card-body">
-    <input class="form-control mb-2" placeholder="Adresse de livraison">
-    <textarea class="form-control mb-2" placeholder="Remarques"></textarea>
-    <button class="btn btn-success w-100">Envoyer</button>
-  </div>
+  <form action="./cliente.php" method="POST">  <!-- form start -->
+    <div class="card-header bg-success text-white">Créer une commande</div>
+    <div class="card-body">
+      <input class="form-control mb-2" name="name" placeholder="name" required>
+      <input class="form-control mb-2" name="status" placeholder="status" required>
+      <input class="form-control mb-2" name="address" placeholder="Adresse de livraison" required>
+
+      <button type="submit" name="create_commande" class="btn btn-success w-100">Envoyer</button>
+    </div>
+  </form>
 </div>
+
 
 <!-- Orders -->
 <h5>Mes commandes</h5>

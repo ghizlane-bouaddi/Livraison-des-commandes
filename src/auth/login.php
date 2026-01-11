@@ -11,9 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
 
-    $pdo = Database::getpdo();
-
- 
+    // $pdo = Database::getpdo();
+    $pdo = new Database();
     $auth = new AuthService($pdo);
 
     if ($auth->login($email, $password)) {

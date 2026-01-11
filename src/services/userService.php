@@ -1,10 +1,11 @@
 <?php
+require_once '../database/database.php';
 
 class User {
 
-    private PDO $pdo;
-
-    public function __construct(PDO $pdo) {
+    private Database $pdo;
+    public function __construct(Database $pdo)
+    {
         $this->pdo = $pdo;
     }
 
@@ -13,16 +14,10 @@ class User {
        
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO users (name, email, password, rele_id)
-                VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO users (name, email, password, rele_id)VALUES (?, ?, ?, ?)";
 
-        $stmt = $this->pdo->prepare($sql);
+        $stmt = $this->pdo->getpdo()->prepare($sql);
 
-        return $stmt->execute([
-            $name,
-            $email,
-            $hashedPassword,
-            $role
-        ]);
+        return $stmt->execute([$name,$email,$hashedPassword,$role]);
     }
 }
