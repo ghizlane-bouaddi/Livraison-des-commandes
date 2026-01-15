@@ -1,7 +1,7 @@
 <?php
 
 include 'BaseModel.php';
-class User extends BaseModel{
+class User{
     private int $id;
     private string $name;
     private string $email;
@@ -9,7 +9,7 @@ class User extends BaseModel{
     private int $roleId;
 
     public function __construct(int $id, string $name, string $email, string $password,$roleId){
-        parent::__construct();
+        
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;

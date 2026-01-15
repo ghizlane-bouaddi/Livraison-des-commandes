@@ -2,27 +2,24 @@
 require_once '../database/database.php';
 class AuthService {
     // private PDO $pdo;
-    private Database $pdo;
+    private Database $pdo ;
+
+
     public function __construct(Database $pdo)
     {
         $this->pdo = $pdo;
     }
     public function login(string $email, string $password): bool
     {
-
-        $stmt = $this->pdo->getpdo()->prepare("SELECT * FROM users WHERE email = ?");
-        $stmt->execute([$email]);
-
+        $stmt = $this->pdo->getpdo()->prepare("SELECT * FROM users WHERE email =?");
+        $stmt->execute(['email']);
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    
-        if ($user && password_verify($password, $user["password"])) {
-
-            $_SESSION["user_id"] = $user["id"];
-            $_SESSION["rele_id"] = $user["rele_id"];
-
-            return true; 
+        if($user && password_verify($email,$password)){
+            $_SESSION['user_id'] == $_SESSION['id'];
+            $_SESSION['reli_id'] == $_SESSION['rele_id'];
+            return true;
         }
 
         return false;

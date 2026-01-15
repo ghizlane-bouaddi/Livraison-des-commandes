@@ -1,14 +1,14 @@
 <?php
 
 include 'BaseModel.php';
-class Notification extends BaseModel{
+class Notification{
       private int $id;
     private string $message;
     private string $date;
     private int $userId;
 
     public function __construct(int $id,string $message,string $date,int $userId){
-        parent::__construct();
+       
         $this->id = $id;
         $this->message = $message;
         $this->date = $date;

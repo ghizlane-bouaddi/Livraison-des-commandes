@@ -1,7 +1,7 @@
 <?php
 
 include 'BaseModel.php';
-class Commend extends BaseModel{
+class Commend{
    private int $id;
 //    private string $name;
     private string $status;
@@ -11,7 +11,7 @@ class Commend extends BaseModel{
 
 
     public function __construct($id,$status,$addrise,$clientId,$livrerId = null){
-        parent::__construct();
+        
         $this->id=$id;
         // $this->name=$name;
         $this->status=$status;

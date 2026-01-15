@@ -2,9 +2,9 @@
 class Database
 {
 
-    // private static ?PDO $conn = null;
+    private static ?PDO $conn = null;
 
-    // private function __construct(){}
+    public function __construct(){}
 
     public function getpdo()
     {

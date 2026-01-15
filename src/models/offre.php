@@ -1,14 +1,14 @@
 <?php
 
 include 'BaseModel.php';
-class Offre extends BaseModel{
+class Offre{
     private int $id;
     private float $prix;
     private int $commend_id;
     private int $livrer_id;
 
     public function __construct($id,$prix,$commend_id,$livrer_id){
-        parent::__construct();
+        
         $this->id=$id;
         $this->prix=$prix;
         $this->commend_id=$commend_id;
